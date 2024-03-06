@@ -27,6 +27,8 @@ class ActuatorsController extends Controller
         ]);
         $actuator = new Actuator();
         $actuator->fill($request->all());
+        $actuator-> date = ('Y-m-d H:i:s');
+        $actuator-> user_id = $request->user()->id;
         $actuator->save();
         return $actuator;
     }
